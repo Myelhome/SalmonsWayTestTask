@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17a3484d7006ef347b61e3e919210a3b, type: 3}
+  m_Name: SparrowEnemy
+  m_EditorClassIdentifier: 
+  objectName: SparrowEnemy
+  prefab: {fileID: 1244885052747723952, guid: 16061f8497f9d5046bb837e992eec40e, type: 3}
+  speed: 6
+  angularRotationSpeed: 360
+  targets: []
+  idleMaxMagnitude: 0
+  agentStoppingDistance: 2
