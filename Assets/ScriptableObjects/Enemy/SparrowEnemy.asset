@@ -17,5 +17,5 @@ MonoBehaviour:
   speed: 6
   angularRotationSpeed: 360
   targets: []
-  idleMaxMagnitude: 0
+  idleMaxMagnitude: 0.3
   agentStoppingDistance: 2

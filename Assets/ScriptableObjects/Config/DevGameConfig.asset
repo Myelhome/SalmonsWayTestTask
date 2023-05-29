@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0e96a83990ba5a42bc159a31b47f29e, type: 3}
   m_Name: DevGameConfig
   m_EditorClassIdentifier: 
-  playerSpeed: 7
+  playerSpeed: 10
   playerRotationSpeed: 20
-  playerGroundDrag: 25
+  playerGroundDrag: 5
   enemyAmountBeforeNotify: 10
   groundLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   playerIsWalkingAnimationKey: IsWalking
   enemyIsWalkingAnimationKey: IsWalking
