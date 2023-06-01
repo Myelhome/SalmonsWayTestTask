@@ -8,8 +8,9 @@ public class Player : MonoBehaviour
     private Camera mainCamera;
     private Rigidbody rb;
 
-    private Vector3 lastMousePositionNormalized;
+    private Vector3 lastMousePosition;
     private Vector3 moveDir;
+    private Plane groundPlane = new Plane(Vector3.down, 0); 
 
     public Vector3 MoveDir { get => moveDir; set => moveDir = value; }
 
@@ -65,13 +66,18 @@ public class Player : MonoBehaviour
     private void HandleRotation()
     {
         var mousePosition = Input.mousePosition;
-        if (IsOnScreen(mousePosition)) lastMousePositionNormalized = mousePosition;
+        if (IsOnScreen(mousePosition)) lastMousePosition = mousePosition;
 
-        var coursourDirection = mainCamera.ScreenToWorldPoint(lastMousePositionNormalized) - this.transform.position;
-        coursourDirection.y = 0;
+        var ray = mainCamera.ScreenPointToRay(lastMousePosition);
 
-        //using slerp for smoth rotation
-        transform.forward = Vector3.Slerp(base.transform.forward, coursourDirection, Time.deltaTime * config.BuildSettings.PlayerRotationSpeed); ;
+        if(groundPlane.Raycast(ray, out float distance))
+        {
+            var lookDirection = ray.GetPoint(distance) - transform.position;
+            lookDirection.y = 0;
+
+            //using slerp for smoth rotation
+            transform.forward = Vector3.Slerp(transform.forward, lookDirection, Time.deltaTime * config.BuildSettings.PlayerRotationSpeed);
+        }
     }
 
     private bool IsOnScreen(Vector3 mousePosition)

@@ -26,10 +26,26 @@ public class GameInput : MonoBehaviour
     private void UpdateMoveDir()
     {
         var inputVector = new Vector2(0, 0);
-        if (Input.GetKey(KeyCode.W)) inputVector.y++;
-        if (Input.GetKey(KeyCode.S)) inputVector.y--;
-        if (Input.GetKey(KeyCode.A)) inputVector.x--;
-        if (Input.GetKey(KeyCode.D)) inputVector.x++;
+        if (Input.GetKey(KeyCode.W))
+        {
+            inputVector.y++;
+            inputVector.x++;
+        }
+        if (Input.GetKey(KeyCode.S))
+        {
+            inputVector.y--;
+            inputVector.x--;
+        }
+        if (Input.GetKey(KeyCode.A))
+        {
+            inputVector.y++;
+            inputVector.x--;
+        }
+        if (Input.GetKey(KeyCode.D))
+        {
+            inputVector.y--;
+            inputVector.x++;
+        }
 
         player.MoveDir = new Vector3(inputVector.x, 0, inputVector.y).normalized;
     }
